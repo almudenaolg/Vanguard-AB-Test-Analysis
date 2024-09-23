@@ -1,0 +1,13 @@
+prefix=c:/Users/almuo/Desktop/IRONHACK/PROJECT 2 AB TESTING/Vanguard-AB-Test-Analysis/.conda/Library
+exec_prefix=c:/Users/almuo/Desktop/IRONHACK/PROJECT 2 AB TESTING/Vanguard-AB-Test-Analysis/.conda/Library
+libdir=c:/Users/almuo/Desktop/IRONHACK/PROJECT 2 AB TESTING/Vanguard-AB-Test-Analysis/.conda/Library/lib
+sharedlibdir=c:/Users/almuo/Desktop/IRONHACK/PROJECT 2 AB TESTING/Vanguard-AB-Test-Analysis/.conda/Library/lib
+includedir=c:/Users/almuo/Desktop/IRONHACK/PROJECT 2 AB TESTING/Vanguard-AB-Test-Analysis/.conda/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
