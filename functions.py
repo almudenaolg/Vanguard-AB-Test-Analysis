@@ -84,10 +84,3 @@ def convert_to_datetime(df, column):
 def convert_to_categorical(df, column):
     df[column] = df[column].astype('category')
     return df
-
-def format_time(time):
-    #Convert time to string
-    time = str(time)
-    #Select only the last 8 digits
-    time = time[-8:]
-    return time
