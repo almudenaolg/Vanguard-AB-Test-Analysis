@@ -37,24 +37,6 @@ def remove_nulls_and_duplicates(df, threshold=0.8):
     
     return df_cleaned
 
-def convert_to_datetime(df, column):
-    """
-    Convert a column to datetime format.
-    
-    Parameters
-    ----------
-    df : pandas.DataFrame
-        The dataframe containing the column.
-    column : str
-        The name of the column to convert.
-    
-    Returns
-    -------
-    df : pandas.DataFrame
-        The dataframe with the column converted to datetime.
-    """
-    df[column] = pd.to_datetime(df[column], errors='coerce')
-    return df
 
 def rename_columns_1(df):
     """
@@ -80,6 +62,32 @@ def mean_fill_missing_values(df, column):
     df[column] = df[column].fillna(df[column].mean())
     return df
 
+def convert_to_datetime(df, column):
+    """
+    Convert a column to datetime format.
+    
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        The dataframe containing the column.
+    column : str
+        The name of the column to convert.
+    
+    Returns
+    -------
+    df : pandas.DataFrame
+        The dataframe with the column converted to datetime.
+    """
+    df[column] = pd.to_datetime(df[column], errors='coerce')
+    return df
+
 def convert_to_categorical(df, column):
     df[column] = df[column].astype('category')
     return df
+
+def format_time(time):
+    #Convert time to string
+    time = str(time)
+    #Select only the last 8 digits
+    time = time[-8:]
+    return time
