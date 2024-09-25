@@ -84,3 +84,38 @@ def convert_to_datetime(df, column):
 def convert_to_categorical(df, column):
     df[column] = df[column].astype('category')
     return df
+
+def calculate_centrality(df,column):
+    mean =df[column].mean().round(2)
+    median = df[column].median()
+    mode = df[column].mode()[0]
+    return{
+        'Mean': mean,
+        'Median': median,
+        'Mode': mode
+    }
+
+def calculate_dispersion(df, column):
+    variance = round(df[column].var(), 2)
+    std_dev = round(df[column].std(), 2)
+    min_value = df[column].min()
+    max_value = df[column].max()
+    range_value = max_value - min_value
+    quantiles = df[column].quantile([0.25, 0.5, 0.75]).to_dict()  
+    
+    return {
+        'Variance': variance,
+        'Standard Deviation': std_dev,
+        'Min': min_value,
+        'Max': max_value,
+        'Range': range_value,
+        'Quantiles': quantiles
+    }
+def calculate_skewness_kurtosis(df, column):
+    skewness = round(df[column].skew(), 2)
+    kurtosis = round(df[column].kurtosis(), 2)
+    
+    return {
+        'Skewness': skewness,
+        'Kurtosis': kurtosis
+    }
