@@ -84,3 +84,17 @@ def convert_to_datetime(df, column):
 def convert_to_categorical(df, column):
     df[column] = df[column].astype('category')
     return df
+
+def convert_steps_to_number(df, column):
+    # Dictionary to translate steps into numbers
+    step_mapping = {
+        'start': 0,
+        'step_1': 1,
+        'step_2': 2,
+        'step_3': 3,
+        'confirm': 4}
+
+    # Apply mapping to specified column
+    df[column] = df[column].map(step_mapping)
+    
+    return df
