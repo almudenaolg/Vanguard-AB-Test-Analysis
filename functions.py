@@ -115,7 +115,40 @@ def calculate_skewness_kurtosis(df, column):
     skewness = round(df[column].skew(), 2)
     kurtosis = round(df[column].kurtosis(), 2)
     
-    return {
-        'Skewness': skewness,
-        'Kurtosis': kurtosis
-    }
+    return {'Skewness': skewness,
+        'Kurtosis': kurtosis}
+
+def plot_histogram(df, column, bins=30):
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    plt.figure(figsize=(12, 8))
+    sns.histplot(df[column], kde=True, bins=bins, color="salmon")  # Histograma con KDE
+    plt.title(f'Histogram of {column}')  
+    plt.xlabel(column)  
+    plt.ylabel('Frequency') 
+    plt.tight_layout()  
+    plt.show() 
+
+
+def plot_boxplot(df, column):
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    plt.figure(figsize=(10, 15))  
+    sns.boxplot(data=df[column], color="lightblue") 
+    plt.title(f'Box Plot of {column}') 
+    plt.xlabel(column) 
+    plt.tight_layout()
+    plt.show()
+
+
+def plot_barplot(df, column):
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    plt.figure(figsize=(10, 8))
+    sns.countplot(x=column, data=df, palette="pastel")  
+    plt.title(f'Bar Plot of {column}')
+    plt.xlabel(column) 
+    plt.ylabel('Count') 
+    plt.xticks(rotation=45) 
+    plt.tight_layout() 
+    plt.show()
