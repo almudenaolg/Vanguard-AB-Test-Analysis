@@ -167,3 +167,16 @@ def plot_barplot(df, column):
     plt.xticks(rotation=45) 
     plt.tight_layout() 
     plt.show()
+
+
+def chi_results(crosstab):
+    # Chi-square test for significance
+    from scipy.stats import chi2_contingency
+    chi2, p, dof, ex = chi2_contingency(crosstab)
+    print(f"Chi2: {chi2}, p-value: {p}")
+
+def cramer_result(crosstab):
+    from scipy.stats.contingency import association
+    # Computing the association between variables in 'crosstab_result' using the "cramer" method
+    return association(crosstab, method="cramer")
+
