@@ -85,6 +85,21 @@ def convert_to_categorical(df, column):
     df[column] = df[column].astype('category')
     return df
 
+
+def convert_steps_to_number(df, column):
+    step_mapping = {
+        'start': 0,
+        'step_1': 1,
+        'step_2': 2,
+        'step_3': 3,
+        'confirm': 4}
+
+    # Aply mapping to the values in the column
+    df[column] = df[column].map(step_mapping)
+    
+    return df
+
+
 def calculate_centrality(df,column):
     mean =df[column].mean().round(2)
     median = df[column].median()
