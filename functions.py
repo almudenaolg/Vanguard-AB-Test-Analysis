@@ -148,7 +148,7 @@ def plot_histogram(df, column, bins=30):
 def plot_boxplot(df, column):
     import matplotlib.pyplot as plt
     import seaborn as sns
-    plt.figure(figsize=(10, 15))  
+    plt.figure(figsize=(8, 10))  
     sns.boxplot(data=df[column], color="lightblue") 
     plt.title(f'Box Plot of {column}') 
     plt.xlabel(column) 
