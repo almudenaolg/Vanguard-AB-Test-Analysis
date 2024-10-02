@@ -1,4 +1,8 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import chi2_contingency
+from scipy.stats.contingency import association
 
 # Function to explore dataframes
 def explore(dataframe):
@@ -58,9 +62,11 @@ def rename_columns_1(df):
         'logons_6_mnth': 'logons_last_6_months'}, inplace=True)
     return df
 
+
 def mean_fill_missing_values(df, column):
     df[column] = df[column].fillna(df[column].mean())
     return df
+
 
 def convert_to_datetime(df, column):
     """
@@ -81,12 +87,43 @@ def convert_to_datetime(df, column):
     df[column] = pd.to_datetime(df[column], errors='coerce')
     return df
 
+
 def convert_to_categorical(df, column):
+    """
+    Convert a column to categorical format.
+    
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        The dataframe containing the column.
+    column : str
+        The name of the column to convert.
+    
+    Returns
+    -------
+    df : pandas.DataFrame
+        The dataframe with the column converted to categorical.
+    """
     df[column] = df[column].astype('category')
     return df
 
 
 def convert_steps_to_number(df, column):
+    """
+    Convert steps to numbers.
+    
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        The dataframe containing the column.
+    column : str
+        The name of the column to convert.
+    
+    Returns
+    -------
+    df : pandas.DataFrame
+        The dataframe with the column converted to numbers.
+    """
     step_mapping = {
         'start': 0,
         'step_1': 1,
@@ -101,16 +138,45 @@ def convert_steps_to_number(df, column):
 
 
 def calculate_centrality(df,column):
+    """
+    Calculate the mean, median, and mode of a column in a dataframe.
+    
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        The dataframe containing the column.
+    column : str
+        The name of the column to calculate the centrality.
+    
+    Returns
+    -------
+    dict
+        A dictionary with the mean, median, and mode of the column.
+    """
     mean =df[column].mean().round(2)
     median = df[column].median()
     mode = df[column].mode()[0]
-    return{
-        'Mean': mean,
+    return{'Mean': mean,
         'Median': median,
-        'Mode': mode
-    }
+        'Mode': mode}
+
 
 def calculate_dispersion(df, column):
+    """
+    Calculate the variance, standard deviation, min, max, range, and quantiles of a column in a dataframe.
+    
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        The dataframe containing the column.
+    column : str
+        The name of the column to calculate the dispersion.
+    
+    Returns
+    -------
+    dict
+        A dictionary with the variance, standard deviation, min, max, range, and quantiles of the column.
+    """
     variance = round(df[column].var(), 2)
     std_dev = round(df[column].std(), 2)
     min_value = df[column].min()
@@ -118,24 +184,50 @@ def calculate_dispersion(df, column):
     range_value = max_value - min_value
     quantiles = df[column].quantile([0.25, 0.5, 0.75]).to_dict()  
     
-    return {
-        'Variance': variance,
+    return {'Variance': variance,
         'Standard Deviation': std_dev,
         'Min': min_value,
         'Max': max_value,
         'Range': range_value,
-        'Quantiles': quantiles
-    }
+        'Quantiles': quantiles}
+
+
 def calculate_skewness_kurtosis(df, column):
+    """
+    Calculate the skewness and kurtosis of a column in a dataframe.
+    
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        The dataframe containing the column.
+    column : str
+        The name of the column to calculate the skewness and kurtosis.
+    
+    Returns
+    -------
+    dict
+        A dictionary with the skewness and kurtosis of the column.
+    """
     skewness = round(df[column].skew(), 2)
     kurtosis = round(df[column].kurtosis(), 2)
     
     return {'Skewness': skewness,
         'Kurtosis': kurtosis}
 
+
 def plot_histogram(df, column, bins=30):
-    import matplotlib.pyplot as plt
-    import seaborn as sns
+    """
+    Plot a histogram of a column in a dataframe.
+    
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        The dataframe containing the column.
+    column : str
+        The name of the column to plot the histogram.
+    bins : int, optional
+        The number of bins to use in the histogram. Default is 30.
+    """
     plt.figure(figsize=(12, 8))
     sns.histplot(df[column], kde=True, bins=bins, color="salmon")  # Histograma con KDE
     plt.title(f'Histogram of {column}')  
@@ -146,8 +238,16 @@ def plot_histogram(df, column, bins=30):
 
 
 def plot_boxplot(df, column):
-    import matplotlib.pyplot as plt
-    import seaborn as sns
+    """
+    Plot a boxplot of a column in a dataframe.
+    
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        The dataframe containing the column.
+    column : str
+        The name of the column to plot the boxplot.
+    """
     plt.figure(figsize=(8, 10))  
     sns.boxplot(data=df[column], color="lightblue") 
     plt.title(f'Box Plot of {column}') 
@@ -157,8 +257,16 @@ def plot_boxplot(df, column):
 
 
 def plot_barplot(df, column):
-    import matplotlib.pyplot as plt
-    import seaborn as sns
+    """
+    Plot a barplot of a column in a dataframe.
+    
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        The dataframe containing the column.
+    column : str
+        The name of the column to plot the barplot.
+    """
     plt.figure(figsize=(10, 8))
     sns.countplot(x=column, data=df, palette="pastel")  
     plt.title(f'Bar Plot of {column}')
@@ -170,12 +278,38 @@ def plot_barplot(df, column):
 
 
 def chi_results(crosstab):
+    """
+    Computes the association between variables in 'crosstab_result' using the "chi-square" method
+
+    Parameters
+    ----------
+    crosstab : pandas.DataFrame
+        The crosstabulation of two variables.
+
+    Returns
+    -------
+    float
+        The p-value of the chi-square test.
+    """
     # Chi-square test for significance
-    from scipy.stats import chi2_contingency
     chi2, p, dof, ex = chi2_contingency(crosstab)
     return p
+
+
 def cramer_result(crosstab):
-    from scipy.stats.contingency import association
+    """
+    Computes the association between variables in 'crosstab_result' using the "cramer" method
+
+    Parameters
+    ----------
+    crosstab : pandas.DataFrame
+        The crosstabulation of two variables.
+
+    Returns
+    -------
+    float
+        The association between variables in 'crosstab_result' using the "cramer" method.
+    """
     # Computing the association between variables in 'crosstab_result' using the "cramer" method
     return association(crosstab, method="cramer")
 
