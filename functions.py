@@ -228,7 +228,7 @@ def plot_histogram(df, column, bins=30):
     bins : int, optional
         The number of bins to use in the histogram. Default is 30.
     """
-    plt.figure(figsize=(12, 8))
+    plt.figure(figsize=(9, 6))
     sns.histplot(df[column], kde=True, bins=bins, color="salmon")  # Histograma con KDE
     plt.title(f'Histogram of {column}')  
     plt.xlabel(column)  
@@ -248,7 +248,7 @@ def plot_boxplot(df, column):
     column : str
         The name of the column to plot the boxplot.
     """
-    plt.figure(figsize=(8, 10))  
+    plt.figure(figsize=(6, 9))  
     sns.boxplot(data=df[column], color="lightblue") 
     plt.title(f'Box Plot of {column}') 
     plt.xlabel(column) 
@@ -267,7 +267,7 @@ def plot_barplot(df, column):
     column : str
         The name of the column to plot the barplot.
     """
-    plt.figure(figsize=(10, 8))
+    plt.figure(figsize=(9, 6))
     sns.countplot(x=column, data=df, palette="pastel")  
     plt.title(f'Bar Plot of {column}')
     plt.xlabel(column) 
