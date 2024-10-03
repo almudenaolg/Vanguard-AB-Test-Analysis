@@ -40,7 +40,7 @@ This project analyzed the impact of a **new web design** on user behavior using 
 - **`functions.py`**: Contains **helper functions** used for data cleaning and visualization.
 - **`requirements.txt`**: Lists all **required libraries** for running the project environment.
 
-### 🗣️ **Recommendations & next Steps**
+### 🗣️ **Recommendations & next steps**
 Based on the findings:
 1. **Roll out the new design** as the default version since it shows **higher completion rates**.
 2. **Focus on Step 1 and Step 4** to reduce time spent and friction in the process.
