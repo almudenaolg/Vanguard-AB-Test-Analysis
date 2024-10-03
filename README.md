@@ -1,7 +1,7 @@
 # 🖥️ **Data analysis of A/B Testing project**
 
 ## 👥 **Authors**:
-Ana Nofuentes & Almudena Ocaña
+[Ana Nofuentes](https://www.linkedin.com/in/ana-nofuentes-solano-654026a3/) & [Almudena Ocaña](https://www.linkedin.com/in/almudena-ocaloga/)
 
 ### 📋 **Project overview**
 This project analyzed the impact of a **new web design** on user behavior using **A/B Testing**. The main objective was to evaluate whether the new design improved **completion rates** and **user engagement** while minimizing **friction** in the process. We also focused on understanding how different user segments (e.g., age groups, high-value clients) responded to the changes.
