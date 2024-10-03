@@ -41,8 +41,12 @@ This project analyzed the impact of a **new web design** on user behavior using 
 - **`requirements.txt`**: Lists all **required libraries** for running the project environment.
 
 ### 🖼️ **Presentation of data analysis results**
-We compiled our findings into a presentation, highlighting the key results and visualizations. You can view our Tableau stories here:
+Our findings were compiled into two engaging presentations to communicate insights effectively:
+
+Tableau Dashboard: Explore our interactive Tableau dashboards for detailed visual analysis. 📊 View Canva Presentation
 [📊 Delivery Data Analysis Presentation](https://public.tableau.com/views/Tableau_AB_testing/Historia1?:language=es-ES&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
+Canva Presentation: Visual storytelling with design elements to present key insights.   📊 View Canva Presentation[View Canva Presentation](https://www.canva.com/design/DAGSiutyywc/7NYwnC683r7DsM51iH8jwA/edit)
 
 ### 🗣️ **Recommendations & next steps**
 Based on the findings:
