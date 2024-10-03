@@ -42,7 +42,7 @@ This project analyzed the impact of a **new web design** on user behavior using 
 
 ### 🖼️ **Presentation of data analysis results**
 We compiled our findings into a presentation, highlighting the key results and visualizations. You can view our Tableau stories here:
-[📊 Delivery Data Analysis Presentation](pegar aquí enlace)
+[📊 Delivery Data Analysis Presentation](https://public.tableau.com/views/Tableau_AB_testing/Historia1?:language=es-ES&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ### 🗣️ **Recommendations & next steps**
 Based on the findings:
