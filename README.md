@@ -40,6 +40,10 @@ This project analyzed the impact of a **new web design** on user behavior using 
 - **`functions.py`**: Contains **helper functions** used for data cleaning and visualization.
 - **`requirements.txt`**: Lists all **required libraries** for running the project environment.
 
+### 🖼️ **Presentation of data analysis results**
+We compiled our findings into a presentation, highlighting the key results and visualizations. You can view our Tableau stories here:
+[📊 Delivery Data Analysis Presentation](pegar aquí enlace)
+
 ### 🗣️ **Recommendations & next steps**
 Based on the findings:
 1. **Roll out the new design** as the default version since it shows **higher completion rates**.
