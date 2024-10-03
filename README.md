@@ -1,4 +1,4 @@
-# 🖥️ **Web redesign A/B Testing project**
+# 🖥️ **Data analysis of A/B Testing project**
 
 ## 👥 **Authors**:
 Ana Nofuentes & Almudena Ocaña
