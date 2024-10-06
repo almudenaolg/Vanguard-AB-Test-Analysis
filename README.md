@@ -44,7 +44,7 @@ This project analyzed the impact of a **new web design** on user behavior using 
 Our findings were compiled into two engaging presentations to communicate insights effectively:
 
 Tableau Dashboard: Explore our interactive Tableau dashboards for detailed visual analysis. 
-[📊 View Tableau Presentation](https://public.tableau.com/views/Tableau_AB_testing/Historia1?:language=es-ES&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+[📊 View Tableau Presentation](https://public.tableau.com/views/Tableau_AB_testing_17282090726700/ABTestingresults?:language=es-ES&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 Canva Presentation: Visual storytelling with design elements to present key insights.  [📊 View Canva Presentation](https://www.canva.com/design/DAGSiutyywc/7NYwnC683r7DsM51iH8jwA/edit)
 
