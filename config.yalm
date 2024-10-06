@@ -1,0 +1,69 @@
+# Overall project configuration
+project:
+  name: "Vanguard Web Analysis"
+  authors: "Almudena Ocaña y Ana Nofuentes"
+  version: "1.0"
+
+# File paths
+paths:
+  data_dir: "data/"                   
+  raw_data_dir: "data/raw/"             
+  clean_data_dir: "data/cleaned/"      
+  raw_data_files:
+    demo_file: "data/raw/df_final_demo.txt"
+    experiment_file: "data/raw/df_final_experiment.txt"
+    web_data_part1: "data/raw/df_final_web_data_pt1.txt"
+    web_data_part2: "data/raw/df_final_web_data_pt2.txt"
+  clean_data_files:
+    complete_df: "data/cleaned/df_filtered.csv"
+    steps_df: "data/cleaned/steps_df.csv"
+  notebooks_dir: "notebooks/"          
+  exploratory_notebook: "notebooks/exploratory.ipynb"
+  final_notebook: "notebooks/final.ipynb"
+  functions_file: "functions.py"       
+  config_file: "config.yaml"
+
+  # Parameters for data analysis
+analysis_params:
+  correlation_method: "spearman"          
+  num_bins_age: 4                         
+  num_bins_balance: 4                     
+  significance_level: 0.05                
+  test_groups:
+    control_group: "Control"
+    test_group: "Test"
+
+# Visualization parameters
+visualization:
+  default_palette: "coolwarm"  
+  colors:
+    control_group: '#1f77b4' 
+    test_group: '#ffdd44'  
+
+# Definir parámetros de datos específicos para facilitar la documentación
+columns_description:
+  filtered_df:
+    client_id: "Unique client ID"
+    client_tenure_years: "Client's years of seniority in the company"
+    client_age: "Client's age"
+    gender: "Client's gender"
+    num_accounts: "Number of accounts held by the customer"
+    balance: "Total customer balance"
+    calls_last_6_months: "Number of calls made in the last 6 months"
+    logons_last_6_months: "Number of logins in the last 6 months"
+    experiment_group: "Experiment group (Control or Test)"
+    num_visits: "Total number of visits"
+    num_steps: "Total number of steps"
+    completion_status: "Whether or not the process was completed"
+    total_time_spent: "Total time spent on the web process"
+    repeated_step: "If repeated any step of the process"
+    went_back: "If returned in the step flow"
+    steps_per_visit: "Average number of steps per visit"
+    time_per_step: "Average time per step"
+  steps_df:
+    experiment_group: "Experiment group (Control or Test)"
+    process_step: "Specific step in the process"
+    mean_time_spent: "Average time spent in the step"
+    std_time_spent: "Standard deviation of time in step"
+    friction_rate: "Friction rate in the step"
+    times_repeated: "Number of times the step is repeated"
